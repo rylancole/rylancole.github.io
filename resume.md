@@ -52,5 +52,5 @@ Expected Graduation JUNE 2022
 - Deployed and configured instance via Ubuntu 16.0 virtual private server
 - Integrated moderation with multiple Python and GraphQL APIs
 
-<a download href="./files/RCole-Resume.pdf">Download this resume as PDF</a>
+<a download href="../files/RCole-Resume.pdf">Download this resume as PDF</a>
 

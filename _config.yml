@@ -37,6 +37,10 @@ navigation_header:
   url: /
 - title: Resume
   url: /resume/
+- title: Github
+  url: https://github.com/rylancole 
+- title: LinkedIn
+  url: https://www.linkedin.com/in/rylan-cole/
 - title: Blog
   url: /blog/
 
