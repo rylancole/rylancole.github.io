@@ -22,10 +22,10 @@ plugins:
 # Site settings
 url: ''
 baseurl: ''
-title: 'My website'
-description: 'This is my new website'
+title: 'Rylan Cole'
+description: 'Personal website of UVic CSC student, Rylan Cole'
 permalink: pretty
-logo: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52"
+logo: "https://avatars2.githubusercontent.com/u/35235782?s=460&u=ac1060d4722c9a1a07e3a24f6e608dd0f21ef837&v=4"
 
 # Pagination
 paginate: 5
@@ -35,15 +35,10 @@ paginate_path: blog/page:num
 navigation_header:
 - title: Home
   url: /
-- title: About
-  url: /about/
+- title: Resume
+  url: /resume/
 - title: Blog
   url: /blog/
-
-# Footer nav
-navigation_footer:
-- title: Back to top
-  url: "#top"
 
 # Collections
 collections:
