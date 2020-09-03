@@ -7,8 +7,9 @@ title: Resume
 
 <h4 style="color: #05bf85">EDUCATION</h4>
 
-###### B. Sc Computer Science (Hons.) | SEPT 2016 – PRESENT  
-###### Minor in Physics | Victoria, BC, Canada   
+###### B. Sc Computer Science (Hons.)    
+###### Minor in Physics
+###### SEPT 2016 – PRESENT
 University of Victoria  
 Expected Graduation JUNE 2022  
 
@@ -21,21 +22,24 @@ Expected Graduation JUNE 2022
 
 <h4 style="color: #05bf85">WORK EXPERIENCE</h4>
  
-###### Software Engineer (Co-op) | MAY 2020 – DEC 2020   
-###### realtor.com (Move Canada) | REMOTE  
+###### Software Engineer (Co-op)   
+###### realtor.com (Move Canada)  
+###### MAY 2020 – DEC 2020  
 
 - Researched and analyzed new edge technologies in front-end development, such as module federation
 - Developing efficient and standardized React.js components for the company’s shared UI component library, including unit testing and documentation
 - Reviewed coworkers’ code for compliance with company standards and best practices
 - Assisted in integration of UI Library into external projects by making recommendations and improving components
 
-###### Junior Developer (Co-op) | MAY 2019 – JUNE 2019  
-###### Ocean Networks Canada | Victoria, BC, Canada  
+###### Junior Developer (Co-op) 
+###### Ocean Networks Canada
+###### MAY 2019 – JUNE 2019
 - Developed strong teamwork skills working in professional Agile environment 
 - Wrapped React.js components using company standards
 
-###### Junior Programmer/Analyst (Co-op) | MAY 2018 – AUG. 2018  
-###### BC Government | Victoria, BC, Canada  
+###### Junior Programmer/Analyst (Co-op) 
+###### BC Government 
+###### MAY 2018 – AUG. 2018 
 - Automated regression testing in collaboration with Gaming Online System developers to enhance code coverage to 85%
 - Refactored 75% of company’s automated regression tests in Java-based Selenium using newer efficient objects and methods
 - Analyzed and wrote test code for new features and bug fixes 
@@ -47,4 +51,6 @@ Expected Graduation JUNE 2022
 - Wrote and edited articles about Made in Canada companies for the /r/BuyCanadian community on Reddit.com
 - Deployed and configured instance via Ubuntu 16.0 virtual private server
 - Integrated moderation with multiple Python and GraphQL APIs
+
+<a download href="./files/RCole-Resume.pdf">Download this resume as PDF</a>
 
