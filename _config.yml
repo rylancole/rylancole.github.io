@@ -1,38 +1,56 @@
+# Set theme
+remote_theme: daviddarnes/alembic
+
+# File excludes
+exclude:
+- README.md
+- Gemfile
+- Gemfile.lock
+
+# Set plugins
+plugins:
+- jekyll-sitemap
+- jekyll-mentions
+- jekyll-paginate
+- jekyll-seo-tag
+- jekyll-redirect-from
+- jekyll-default-layout
+- jekyll-feed
+- jemoji
+- jekyll-remote-theme
+
 # Site settings
-title: Paper Theme
-description: > # this means to ignore newlines until "baseurl:"
-  A gentle theme for Jekyll utilising material design.
-baseurl: "/" # the subpath of your site, e.g. /blog/
-# url: "http://yourdomain.com" # the base hostname & protocol for your site you most probably don't need to set it
+url: 'https://mydomain.com'
+baseurl: ''
+title: 'My website'
+description: 'This is my new website'
+permalink: pretty
+logo: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c?s=52"
 
-# Build settings
-markdown: kramdown
-paginate: 5 # pagination based on number of posts
-paginate_path: "page/:num"
-highlighter: pygments
-gems: [jekyll-paginate, jekyll-coffeescript]
+# Pagination
+paginate: 5
+paginate_path: blog/page:num
 
-# comments
-disqus: # add disqus shortname here
+# Header nav
+navigation_header:
+- title: Home
+  url: /
+- title: About
+  url: /about/
+- title: Blog
+  url: /blog/
 
-# author info
-# add your appropriate info here
-author: # your name
-bio:    # your bio
-email:
-email_md5: # md5 hash of your email
-twitter_username:
-github_username:
+# Footer nav
+navigation_footer:
+- title: Back to top
+  url: "#top"
 
-# Theming options
-# These settings are mandatory.
-theme:              'blue-pink'
-# drawer theming
-drawer:
-  text_color:       'grey-600'
-  header_color:     'blue-500'
-  navigation_color: 'grey-200'
-# footer theming
-footer:
-  text_color: 'blue-grey-200'
-  color: 'blue-grey-600'
+# Collections
+collections:
+  posts:
+    title: Posts
+    output: true
+    description: "My thoughts and ideas"
+    feature_text: |
+      Welcome to my blog
+    feature_image: "https://picsum.photos/2560/600?image=866"
