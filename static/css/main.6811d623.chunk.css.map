@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/App.css","webpack://src/components/IconLink.css"],"names":[],"mappings":"AAAA,YAEI,qBACJ,CCHA,EACI,UACJ","file":"main.6811d623.chunk.css","sourcesContent":["header,\nbody {\n    background-color: white;\n}","i {\n    color: white;\n}"]}
