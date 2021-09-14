@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import AppsIcon from "@material-ui/icons/Apps";
+import MenuIcon from "@material-ui/icons/Menu";
 import MailIcon from "@material-ui/icons/Mail";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
@@ -16,6 +16,7 @@ import LaunchIcon from "@material-ui/icons/Launch";
 
 import LinkDrawer from "./components/LinkDrawer";
 import NameTitle from "./components/NameTitle";
+import NeuroModal from "./components/NeuroModal";
 import TabBar from "./components/TabBar";
 import Resume from "./components/Resume";
 import { BIO, linkedinPicSrc } from "./descriptions";
@@ -23,27 +24,36 @@ import { BIO, linkedinPicSrc } from "./descriptions";
 const emailAddress = "rylan.employment@gmail.com";
 
 const App = () => {
-  const [hideHeader, setHideHeader] = useState(false);
+  const [headerIsVisible, setHeaderIsVisible] = useState(true);
+  const [emailIsVisible, setEmailIsVisible] = useState(false);
+
+  const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [showEmail, setShowEmail] = useState(false);
+
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handleOpenDialog = () => {
+    setDialogIsOpen(true);
+    setMenuIsOpen(false);
+  };
+
   return (
     <>
-      <header hidden={hideHeader}>
+      <header hidden={!headerIsVisible}>
         <AppBar style={styles.appBar} elevation={0}>
           <Toolbar style={styles.toolbar}>
             <NameTitle />
             <div style={{ display: "flex", alignItems: "center" }}>
-              {showEmail && (
+              {emailIsVisible && (
                 <Typography style={{ color: "black" }}>
                   {emailAddress}
                 </Typography>
               )}
-              {showEmail && (
+              {emailIsVisible && (
                 <IconButton
                   onClick={() => {
                     navigator.clipboard.writeText(emailAddress);
@@ -52,36 +62,47 @@ const App = () => {
                   <FileCopyIcon />
                 </IconButton>
               )}
-              {showEmail ? (
-                <IconButton href={`mailto:${emailAddress}`}>
-                  <LaunchIcon />
-                </IconButton>
-              ) : (
-                <IconButton onMouseOver={() => setShowEmail(true)}>
-                  <MailIcon />
-                </IconButton>
-              )}
+              <IconButton
+                onMouseOver={() => setEmailIsVisible(true)}
+                href={`mailto:${emailAddress}`}
+              >
+                {emailIsVisible ? <LaunchIcon /> : <MailIcon />}
+              </IconButton>
               <IconButton onClick={() => setMenuIsOpen(!menuIsOpen)}>
-                <AppsIcon />
+                <MenuIcon />
               </IconButton>
             </div>
           </Toolbar>
         </AppBar>
-        <LinkDrawer open={menuIsOpen} onClose={() => setMenuIsOpen(false)} />
+        <LinkDrawer
+          open={menuIsOpen}
+          onClose={() => setMenuIsOpen(false)}
+          openDialog={handleOpenDialog}
+        />
         <div style={{ display: "flex", alignItems: "center" }}>
           <Avatar alt="Rylan Cole" src={linkedinPicSrc} style={styles.avatar} />
-          <Typography>{BIO}</Typography>
+          <span>
+            <Typography>{BIO.intro}</Typography>
+            <br />
+            <Typography>{BIO.body}</Typography>
+          </span>
         </div>
       </header>
       <body>
         <TabBar value={value} onChange={handleChange}>
-          <IconButton onClick={() => setHideHeader(!hideHeader)}>
+          <IconButton onClick={() => setHeaderIsVisible(!headerIsVisible)}>
             <ChevronLeftIcon
-              style={{ transform: `rotate(${hideHeader ? "-" : ""}90deg)` }}
+              style={{
+                transform: `rotate(${headerIsVisible ? "-" : ""}90deg)`,
+              }}
             />
           </IconButton>
         </TabBar>
         <Resume value={value} />
+        <NeuroModal
+          open={dialogIsOpen}
+          onClose={() => setDialogIsOpen(false)}
+        />
       </body>
     </>
   );

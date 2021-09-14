@@ -1,9 +1,4 @@
-import { useState } from "react";
 import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
   Drawer,
   IconButton,
   Typography,
@@ -17,7 +12,6 @@ import CodeIcon from "@material-ui/icons/Code";
 import AllInclusiveIcon from "@material-ui/icons/AllInclusive";
 
 import IconLink from "./IconLink";
-import { ND } from "../descriptions";
 
 const links = [
   {
@@ -42,8 +36,7 @@ const links = [
   },
 ];
 
-const LinkDrawer = ({ open, onClose }) => {
-  const [dialogIsOpen, setDialogIsOpen] = useState(false);
+const LinkDrawer = ({ open, onClose, openDialog }) => {
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
       <ImageList cols={2} rowHeight="auto">
@@ -62,18 +55,11 @@ const LinkDrawer = ({ open, onClose }) => {
           alignItems: "center",
         }}
       >
-        <IconButton onClick={() => setDialogIsOpen(true)}>
+        <IconButton onClick={openDialog}>
           <AllInclusiveIcon />
         </IconButton>
         <Typography variant="subtitle1">Neurodiversity</Typography>
       </div>
-
-      <Dialog open={dialogIsOpen} onClose={() => setDialogIsOpen(false)}>
-        <DialogTitle>Neurodiversity</DialogTitle>
-        <DialogContent>
-          <DialogContentText>{ND}</DialogContentText>
-        </DialogContent>
-      </Dialog>
     </Drawer>
   );
 };

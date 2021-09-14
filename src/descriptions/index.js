@@ -15,12 +15,18 @@ export const descriptions = [
     ],
     buzzy: [
       "Ruby on Rails",
-      "Typescript",
+      "TypeScript",
+      "AngularJS",
       "Code Reviews",
       "Unit Testing",
       "End-to-End Testing",
       "BugSnag",
       "DataDog",
+      "Threat Modelling",
+      "Project Planning",
+      "Full-Stack",
+      "React Native",
+      "GraphQL",
     ],
     in_depth: "TODO",
   },
@@ -37,7 +43,15 @@ export const descriptions = [
       "Reviewed coworkers’ code for compliance with company standards and best practices",
       "Assisted in integration of UI Library into external projects by making recommendations and improving components",
     ],
-    buzzy: ["TODO"],
+    buzzy: [
+      "React.js",
+      "Module Federation",
+      "Unit Testing",
+      "Documentation",
+      "Vault by Hashicorp",
+      "Node.js",
+      "Code Reviews",
+    ],
     in_depth: "TODO",
   },
   {
@@ -50,13 +64,24 @@ export const descriptions = [
       "Automated regression testing in collaboration with Gaming Online System developers to enhance code coverage to 85%",
       "Developed Chrome web extension to write these tests dynamically based on a user’s actions on the web page",
     ],
-    buzzy: ["TODO"],
+    buzzy: [
+      "Java",
+      "Selenium",
+      "Regression Testing",
+      "Legacy Refactoring",
+      "JavaScript",
+      "Web Extension",
+      "Security Clearance",
+    ],
     in_depth: "TODO",
   },
 ];
 
-export const BIO =
-  "In my last full semester before I graduate with a BSc in Computer Science with a Physics minor. I currently live with my fiancé and our 1-year-old daughter. Recently finished 16 months of co-op, half of which I spent as a full stack developer at Clio (Cloud-Based Legal Technology) in Vancouver. Returning to full-time work in January 2022, hoping to focus on growing security-focused software skills.";
+export const BIO = {
+  intro:
+    "Feel free to reach out to me through email if you're interesed in anything you see here!",
+  body: "A couple things about me: I get excited about application security, consumer privacy, and public policy. I have a 1-year-old daughter and I'm getting married in May. In 2018 my biggest weakness going into a co-op was that I din't ask enough questions, now my biggest strength is that I ask too many questions.",
+};
 
 export const ND =
   "I was diagnosed with Obsessive Compulsive Disorder in 2019. I haven't always shared that information openly, but my time at Clio made me feel comfortable and confident with bringing my whole self to work. I'm open to talk about my experiences and would love to engage with neurodiversity programs at other tech companies to help others that might be feel alone or lost in this neurotypical world!";
