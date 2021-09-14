@@ -11,6 +11,8 @@ import {
 import AppsIcon from "@material-ui/icons/Apps";
 import MailIcon from "@material-ui/icons/Mail";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
+import LaunchIcon from "@material-ui/icons/Launch";
 
 import LinkDrawer from "./components/LinkDrawer";
 import NameTitle from "./components/NameTitle";
@@ -18,9 +20,12 @@ import TabBar from "./components/TabBar";
 import Resume from "./components/Resume";
 import { BIO, linkedinPicSrc } from "./descriptions";
 
+const emailAddress = "rylan.employment@gmail.com";
+
 const App = () => {
   const [hideHeader, setHideHeader] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [showEmail, setShowEmail] = useState(false);
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -32,10 +37,30 @@ const App = () => {
         <AppBar style={styles.appBar} elevation={0}>
           <Toolbar style={styles.toolbar}>
             <NameTitle />
-            <div>
-              <IconButton>
-                <MailIcon />
-              </IconButton>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              {showEmail && (
+                <Typography style={{ color: "black" }}>
+                  {emailAddress}
+                </Typography>
+              )}
+              {showEmail && (
+                <IconButton
+                  onClick={() => {
+                    navigator.clipboard.writeText(emailAddress);
+                  }}
+                >
+                  <FileCopyIcon />
+                </IconButton>
+              )}
+              {showEmail ? (
+                <IconButton href={`mailto:${emailAddress}`}>
+                  <LaunchIcon />
+                </IconButton>
+              ) : (
+                <IconButton onMouseOver={() => setShowEmail(true)}>
+                  <MailIcon />
+                </IconButton>
+              )}
               <IconButton onClick={() => setMenuIsOpen(!menuIsOpen)}>
                 <AppsIcon />
               </IconButton>
