@@ -28,7 +28,11 @@ export const descriptions = [
       "React Native",
       "GraphQL",
     ],
-    in_depth: "TODO",
+    in_depth: [
+      "I spent 8-months at Clio right after finishing at Realtor.com. Clio was the best accelerator to my career I could ask for, and I was quickly in more of a junior role rather than a co-op. My programming skills did develop, but not like the intense growth I found in my 'soft' skills.",
+      "I engaged with my team in project planning, constructive code reviews, and in-depth discussion on topics like threat modelling, scaling, and user experience. My responsibilities ranged from hosting meetings, connecting with stakeholders, writing technical and team documents, and communicating project goals. I had the oppurtunity to collaborate with other teams to solve various problems and gain a rich understanding of the tech-stack.",
+      "What I will take from Clio will be the hunger of curiousity to everything that exists outside and around the code at a tech company, from the lens of a programmer.",
+    ],
   },
   {
     company: "Realtor.com",
@@ -52,7 +56,10 @@ export const descriptions = [
       "Node.js",
       "Code Reviews",
     ],
-    in_depth: "TODO",
+    in_depth: [
+      "At the beginning of the Covid-19 pandemic, I started at Realtor.com. In the first few months I adapted to the work-from-home environment, and learned what worked best for me. After two months, my daughter was born, and I had to adjust to a new lifestyle and keep progressing in my work. I spent the majority of my time building or patching UI components for the site's shared library.",
+      "In my final few months, I took on the larger project of creating an API that sent customer feedback from a UI on the site, straight into Salesforce. This meant integrating with other APIs (i.e. Vault by Hashicorp and Salesforce). Hardening the API to prevent any data loss or malicious strings was the most interesting and instructive part of this.",
+    ],
   },
   {
     company: "BC Government",
@@ -73,14 +80,17 @@ export const descriptions = [
       "Web Extension",
       "Security Clearance",
     ],
-    in_depth: "TODO",
+    in_depth: [
+      "My first co-op was at the Gaming Policy and Enforcement Branch working on the BC Gaming Online System. The system's test suite used Selenium with a centralized class to perform automated regression testing, but this was difficult to maintain because of the number of different pages and sub-pages that needed to tested. I worked on refactoring the test suite to leverage a more object-oriented approach where each page had its own Java-Selenium class that could be inherited by subpages.",
+      "In parallel, I led building a Chrome web extension that converted JavaScript events into Java-Selenium object methods, such that a user's actions on a page could be recorded and printed out as an automated regression test.",
+    ],
   },
 ];
 
 export const BIO = {
   intro:
     "Feel free to reach out to me through email if you're interesed in anything you see here!",
-  body: "A couple things about me: I get excited about application security, consumer privacy, and public policy. I have a 1-year-old daughter and I'm getting married in May. In 2018 my biggest weakness going into a co-op was that I din't ask enough questions, now my biggest strength is that I ask too many questions.",
+  body: "A couple things about me: I get excited about application security, consumer privacy, and public policy. I have a 1-year-old daughter and I'm getting married in May. In 2018 my biggest weakness going into a co-op was that I didn't ask enough questions, now my biggest strength is that I ask too many questions.",
 };
 
 export const ND =
@@ -88,3 +98,5 @@ export const ND =
 
 export const linkedinPicSrc =
   "https://media-exp1.licdn.com/dms/image/C5603AQHxJKxTX63h7Q/profile-displayphoto-shrink_800_800/0/1631307010007?e=1637193600&v=beta&t=ZC-Qhzkow7sUPvJFc073T-TddA0G39dBf3VVm9yXmqw";
+
+export const emailAddress = "rylan.employment@gmail.com";

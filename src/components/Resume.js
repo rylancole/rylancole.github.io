@@ -3,12 +3,12 @@ import SchoolCard from "./school/SchoolCard";
 
 import { descriptions } from "../descriptions";
 
-const Resume = ({ value }) => {
+const Resume = ({ isDesktop, value }) => {
   return (
     <div role="tabpanel">
-      <SchoolCard value={value} />
+      <SchoolCard isDesktop={isDesktop} value={value} />
       {descriptions.map((job) => {
-        return <JobCard data={job} value={value} />;
+        return <JobCard isDesktop={isDesktop} data={job} value={value} />;
       })}
     </div>
   );

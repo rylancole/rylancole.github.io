@@ -1,10 +1,11 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AppBar,
   Avatar,
   IconButton,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@material-ui/core";
 
@@ -17,17 +18,34 @@ import LaunchIcon from "@material-ui/icons/Launch";
 import LinkDrawer from "./components/LinkDrawer";
 import NameTitle from "./components/NameTitle";
 import NeuroModal from "./components/NeuroModal";
+import EmailModal from "./components/EmailModal";
 import TabBar from "./components/TabBar";
 import Resume from "./components/Resume";
-import { BIO, linkedinPicSrc } from "./descriptions";
+import { BIO, linkedinPicSrc, emailAddress } from "./descriptions";
 
-const emailAddress = "rylan.employment@gmail.com";
+const MAX_MOBILE_SCREEN_SIZE = 768;
 
 const App = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  const isMobile = () => width <= MAX_MOBILE_SCREEN_SIZE;
+  const isDesktop = () => width > MAX_MOBILE_SCREEN_SIZE;
+
   const [headerIsVisible, setHeaderIsVisible] = useState(true);
   const [emailIsVisible, setEmailIsVisible] = useState(false);
 
-  const [dialogIsOpen, setDialogIsOpen] = useState(false);
+  const [neuroModalIsOpen, setNeuroModalIsOpen] = useState(false);
+  const [emailModalIsOpen, setEmailModalIsOpen] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const [value, setValue] = useState(0);
@@ -37,7 +55,7 @@ const App = () => {
   };
 
   const handleOpenDialog = () => {
-    setDialogIsOpen(true);
+    setNeuroModalIsOpen(true);
     setMenuIsOpen(false);
   };
 
@@ -47,30 +65,48 @@ const App = () => {
         <AppBar style={styles.appBar} elevation={0}>
           <Toolbar style={styles.toolbar}>
             <NameTitle />
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: `${isMobile() ? "column-reverse" : "row"}`,
+                alignItems: "center",
+              }}
+            >
               {emailIsVisible && (
                 <Typography style={{ color: "black" }}>
                   {emailAddress}
                 </Typography>
               )}
               {emailIsVisible && (
-                <IconButton
-                  onClick={() => {
-                    navigator.clipboard.writeText(emailAddress);
-                  }}
-                >
-                  <FileCopyIcon />
+                <Tooltip title="Copy email address">
+                  <IconButton
+                    onClick={() => {
+                      navigator.clipboard.writeText(emailAddress);
+                    }}
+                  >
+                    <FileCopyIcon />
+                  </IconButton>
+                </Tooltip>
+              )}
+              {isDesktop() ? (
+                <Tooltip title={`mailto:${emailAddress}`}>
+                  <IconButton
+                    onMouseOver={() => setEmailIsVisible(true)}
+                    href={`mailto:${emailAddress}`}
+                  >
+                    {emailIsVisible ? <LaunchIcon /> : <MailIcon />}
+                  </IconButton>
+                </Tooltip>
+              ) : (
+                <IconButton onClick={() => setEmailModalIsOpen(true)}>
+                  <MailIcon />
                 </IconButton>
               )}
-              <IconButton
-                onMouseOver={() => setEmailIsVisible(true)}
-                href={`mailto:${emailAddress}`}
-              >
-                {emailIsVisible ? <LaunchIcon /> : <MailIcon />}
-              </IconButton>
-              <IconButton onClick={() => setMenuIsOpen(!menuIsOpen)}>
-                <MenuIcon />
-              </IconButton>
+              <Tooltip title="More links">
+                <IconButton onClick={() => setMenuIsOpen(!menuIsOpen)}>
+                  <MenuIcon />
+                </IconButton>
+              </Tooltip>
             </div>
           </Toolbar>
         </AppBar>
@@ -79,8 +115,16 @@ const App = () => {
           onClose={() => setMenuIsOpen(false)}
           openDialog={handleOpenDialog}
         />
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Avatar alt="Rylan Cole" src={linkedinPicSrc} style={styles.avatar} />
+        <div
+          style={{ display: "flex", alignItems: "center", padding: "0px 16px" }}
+        >
+          {isDesktop() && (
+            <Avatar
+              alt="Rylan Cole"
+              src={linkedinPicSrc}
+              style={styles.avatar}
+            />
+          )}
           <span>
             <Typography>{BIO.intro}</Typography>
             <br />
@@ -89,19 +133,30 @@ const App = () => {
         </div>
       </header>
       <body>
-        <TabBar value={value} onChange={handleChange}>
-          <IconButton onClick={() => setHeaderIsVisible(!headerIsVisible)}>
-            <ChevronLeftIcon
-              style={{
-                transform: `rotate(${headerIsVisible ? "-" : ""}90deg)`,
-              }}
-            />
-          </IconButton>
-        </TabBar>
-        <Resume value={value} />
+        {isDesktop() ? (
+          <TabBar value={value} onChange={handleChange}>
+            <IconButton onClick={() => setHeaderIsVisible(!headerIsVisible)}>
+              <ChevronLeftIcon
+                style={{
+                  transform: `rotate(${headerIsVisible ? "" : "-"}90deg)`,
+                }}
+              />
+            </IconButton>
+          </TabBar>
+        ) : (
+          <Typography style={{ textAlign: "center", color: "grey" }}>
+            View on desktop for more info
+          </Typography>
+        )}
+
+        <Resume isDesktop={isDesktop()} value={value} />
         <NeuroModal
-          open={dialogIsOpen}
-          onClose={() => setDialogIsOpen(false)}
+          open={neuroModalIsOpen}
+          onClose={() => setNeuroModalIsOpen(false)}
+        />
+        <EmailModal
+          open={emailModalIsOpen}
+          onClose={() => setEmailModalIsOpen(false)}
         />
       </body>
     </>

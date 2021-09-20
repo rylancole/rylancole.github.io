@@ -1,18 +1,18 @@
 import { Box, Typography } from "@material-ui/core";
-import BuildIcon from "@material-ui/icons/Build";
 
 const InDepthJob = ({ data }) => {
   return (
     <Box
       style={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "16px",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        padding: "8px",
       }}
     >
-      <BuildIcon />
-      <Typography>Under Construction</Typography>
+      {data.map((text) => (
+        <Typography style={{ padding: "8px" }}>{text}</Typography>
+      ))}
     </Box>
   );
 };

@@ -3,6 +3,8 @@ import {
   DialogTitle,
   DialogContent,
   DialogContentText,
+  DialogActions,
+  Button,
 } from "@material-ui/core";
 
 import { ND } from "../descriptions";
@@ -14,6 +16,9 @@ const NeuroModal = ({ open, onClose }) => {
       <DialogContent>
         <DialogContentText>{ND}</DialogContentText>
       </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose}>Close</Button>
+      </DialogActions>
     </Dialog>
   );
 };

@@ -9,10 +9,10 @@ const TabValue = {
   IN_DEPTH: 2,
 };
 
-const SchoolCard = ({ value }) => {
+const SchoolCard = ({ isDesktop, value }) => {
   return (
     <Card style={{ margin: "16px", padding: "8px" }}>
-      {value === TabValue.STANDARD && <StandardSchool />}
+      {value === TabValue.STANDARD && <StandardSchool isDesktop={isDesktop} />}
       {value === TabValue.BUZZY && <BuzzySchool />}
       {value === TabValue.IN_DEPTH && <InDepthSchool />}
     </Card>
