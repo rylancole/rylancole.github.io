@@ -8,10 +8,11 @@ export const descriptions = [
     dates: "JAN 2021 - AUG 2021",
     location: "Burnaby, B.C., Canada (Remote)",
     standard: [
-      "Worked on full-stack development of communications paradigm using Typescript, Ruby on Rails, and React Native",
-      "Engaged in weekly planning to define scope and direction of project",
-      "Supported collogues’ workflows through code reviews, discussions, and testing",
-      "Collaborated with various teams to accelerate tasks, such as application security, customer support, and infrastructure",
+      "Implemented Client Portal communications paradigm between AngularJS web platform and React Native mobile application",
+      "Designed REST and GraphQL API architectures to access Ruby on Rails ActiveRecord data on users, messages, and documents",
+      "Contributed to weekly planning to define scope and direction of project, recurrently responsible for meeting moderation",
+      "Considered a reliable support to colleagues’ workflows through code reviews, discussions, and testing",
+      "Formed and maintained cross-team relationships to accelerate tasks in portfolios such as application security, customer support, and site infrastructure",
     ],
     buzzy: [
       "Ruby on Rails",
@@ -42,10 +43,10 @@ export const descriptions = [
     dates: "MAY 2020 - DEC 2020",
     location: "Richmond, B.C., Canada (Remote)",
     standard: [
-      "Researched and analyzed new edge technologies in front-end development, such as module federation",
+      "Researched and analyzed new edge technologies in front-end development, putting forward Module Federation as an area of interest",
       "Developed efficient and standardized React.js components for the company’s shared UI component library, including unit testing and documentation",
       "Reviewed coworkers’ code for compliance with company standards and best practices",
-      "Assisted in integration of UI Library into external projects by making recommendations and improving components",
+      "Assisted in integration of NPM-managed UI Library into external React.js projects by making recommendations and improving components",
     ],
     buzzy: [
       "React.js",
@@ -99,4 +100,4 @@ export const ND =
 export const linkedinPicSrc =
   "https://media-exp1.licdn.com/dms/image/C5603AQHxJKxTX63h7Q/profile-displayphoto-shrink_800_800/0/1631307010007?e=1637193600&v=beta&t=ZC-Qhzkow7sUPvJFc073T-TddA0G39dBf3VVm9yXmqw";
 
-export const emailAddress = "rylan.employment@gmail.com";
+export const emailAddress = "hello@rylancole.ca";
